@@ -1,0 +1,7 @@
+com\example\orderservice\domain\model\OrderItem.class
+com\example\orderservice\domain\model\Order.class
+com\example\orderservice\OrderServiceApplication.class
+com\example\orderservice\application\OrderService.class
+com\example\orderservice\repository\OrderRepository.class
+com\example\orderservice\interfaceweb\web\OrderController.class
+com\example\orderservice\domain\model\OrderStatus.class
