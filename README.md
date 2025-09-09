@@ -82,9 +82,9 @@ curl -X POST http://localhost:8080/orders
 
 ### ✅ `Order.java`
 
-java
+```java
 
-```
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -100,9 +100,9 @@ public class Order {
 
 ### ✅ `OrderService.java`
 
-java
 
-```
+
+```java
 @Service
 public class OrderService {
     private final OrderRepository repository;
@@ -116,9 +116,9 @@ public class OrderService {
 
 ### ✅ `OrderController.java`
 
-java
 
-```
+
+```java
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
