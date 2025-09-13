@@ -21,6 +21,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
+        working-directory: OrderService/OrderService
       run: mvn -B package --file pom.xml
 
     - name: Set up Docker Buildx
