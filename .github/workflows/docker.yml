@@ -43,7 +43,7 @@ jobs:
         docker run -d --name orderservice -p 8080:8080 sarvinp/orderservice:latest
         # wait for the app to start
         for i in {1..30}; do
-          if curl -sSf http://localhost:8080/orders/test; then
+          if curl -sSf http://localhost:8080/orders; then
             echo "Service is up"; exit 0;
           fi
           sleep 2
