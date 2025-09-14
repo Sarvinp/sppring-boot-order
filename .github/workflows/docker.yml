@@ -41,7 +41,7 @@ jobs:
 
     - name: Run container and test
       run: |
-        docker run -d --name orderservice -p 8080:8080 ghcr.io/${{ github.repository_owner }}/orderservice:latest
+        docker run -d --name orderservice -p 8080:8080 ghcr.io/sarvinp/orderservice:latest
         # wait for the app to start
         for i in {1..30}; do
           if curl -sSf http://localhost:8080/orders/test; then
