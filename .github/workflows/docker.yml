@@ -24,26 +24,24 @@ jobs:
     - name: Build with Maven (OrderService module)
       run: mvn -B -f OrderService/pom.xml clean package
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    - name: Log in to Docker Hub
+    - name: Log in to GitHub Container Registry
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: ./OrderService
         push: true
-        tags: sarvinp/orderservice:latest
+        tags: ghcr.io/${{ github.repository_owner }}/orderservice:latest
         file: ./OrderService/Dockerfile
 
     - name: Run container and test
       run: |
-        docker run -d --name orderservice -p 8080:8080 sarvinp/orderservice:latest
+        docker run -d --name orderservice -p 8080:8080 ghcr.io/${{ github.repository_owner }}/orderservice:latest
         # wait for the app to start
         for i in {1..30}; do
           if curl -sSf http://localhost:8080/orders/test; then
