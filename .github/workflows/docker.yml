@@ -36,7 +36,7 @@ jobs:
       with:
         context: ./OrderService
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/orderservice:latest
+        tags: ghcr.io/sarvinp/orderservice:latest
         file: ./OrderService/Dockerfile
 
     - name: Run container and test
